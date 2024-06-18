@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".JournalFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/title_bar"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/cap_journal"
+        android:textAlignment="center"
+        android:textSize="40sp" />
+
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/j_search"
+        android:layout_width="396dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="75dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/no_fill_email_and_search_bar"
+        android:hint="@string/spaces_search"
+        android:textAlignment="center"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="132dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/recents"
+        android:textAlignment="viewStart"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/j_recyclerView"
+        android:layout_width="412dp"
+        android:layout_height="563dp"
+        android:layout_marginTop="167dp" />
+
+
+</FrameLayout>

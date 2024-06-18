@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">JournalPro</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="to_the_sorted_world_of_journaling">To the sorted world of Journaling</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="password">"  Password"</string>
+    <string name="email">"  Email"</string>
+    <string name="register">Register</string>
+    <string name="welcome">Welcome,</string>
+    <string name="we_are_glad_you_re_enjoying_journaling">We are glad you\'re enjoying Journaling</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="let_s_start">Let\'s Start</string>
+    <string name="everything_piling_up">Everything Piling Up?</string>
+    <string name="try_journal_pro">Try Journal Pro!</string>
+    <string name="log_in">Log In</string>
+    <string name="settings">Settings</string>
+    <string name="scheduler">Scheduler</string>
+    <string name="notes">Notes</string>
+    <string name="journal">Journal</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cap_journal">JOURNAL</string>
+    <string name="search">Search</string>
+    <string name="spaces_search">Search</string>
+    <string name="recents">Recents</string>
+    <string name="textview">TextView</string>
+    <string name="title">TITLE</string>
+    <string name="discription">discription</string>
+    <string name="cap_notes">NOTES</string>
+    <string name="cap_scheduler">SCHEDULER</string>
+    <string name="cap_settings">SETTINGS</string>
+    <string name="logout">LOGOUT</string>
+
+
+    <string-array name="journal_title">
+        <item>My Holiday</item>
+        <item>My Holiday 2</item>
+        <item>My Holiday Adventure</item>
+        <item>My Vacation Journal</item>
+        <item>My Travel Diary</item>
+        <item>My Summer Adventure</item>
+        <item>My Winter Wonderland</item>
+        <item>My Journey Abroad</item>
+        <item>My Adventure Book</item>
+        <item>My Memoirs</item>
+    </string-array>
+
+    <string-array name="journal_description">
+        <item>Record your memorable holiday moments with My Holiday. This journal captures the essence of your travels, allowing you to relive every adventure, from tranquil sunsets to exciting excursions.</item>
+        <item>Embark on a journey of self-discovery with My Holiday 2. This journal provides a space to reflect on your experiences, personal growth, and the unforgettable memories made during your holiday.</item>
+        <item>Experience the thrill of adventure with My Holiday Adventure. This journal is your companion for daring escapades, adrenaline-pumping activities, and unforgettable encounters.</item>
+        <item>Escape the ordinary and document your vacation memories with My Vacation Journal. This journal is a treasure trove of your holiday stories, allowing you to preserve cherished moments for years to come.</item>
+        <item>Chronicle your travels and experiences with My Travel Diary. This journal is a personal narrative of your journeys, filled with reflections, observations, and memories from around the globe.</item>
+        <item>Relive the magic of summer with My Summer Adventure. This journal captures the essence of sunny days, beach trips, and outdoor escapades, preserving the joy of summer in every page.</item>
+        <item>Embrace the beauty of winter with My Winter Wonderland. This journal is a tribute to the enchanting season, filled with cozy moments, snowy landscapes, and heartwarming memories.</item>
+        <item>Embark on a cultural exploration with My Journey Abroad. This journal is a testament to your global adventures, filled with cultural insights, new discoveries, and unforgettable experiences.</item>
+        <item>Embark on a thrilling adventure with My Adventure Book. This journal is your ticket to exciting journeys, daring exploits, and thrilling escapades, capturing the spirit of adventure in every entry.</item>
+        <item>Preserve your lifes stories with My Memoirs. This journal is a collection of your lifes experiences, reflections, and lessons, ensuring that your memories will be cherished for generations to come.</item>
+    </string-array>
+
+
+</resources>

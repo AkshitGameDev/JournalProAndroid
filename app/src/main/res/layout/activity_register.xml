@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".Register">
+
+    <ImageView
+        android:layout_width="103dp"
+        android:layout_height="110dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.467"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:layout_width="392dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/welcome"
+        android:textColor="@color/black"
+        android:textSize="42sp" />
+    <TextView
+        android:layout_width="392dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/to_the_sorted_world_of_journaling"
+        android:textColor="#cdcdcd"
+        android:textSize="14sp" />
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/RegEmail"
+        android:layout_width="396dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/no_fill_email_and_search_bar"
+        android:hint="@string/email"/>
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/RegPass"
+        android:layout_width="396dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/no_fill_email_and_search_bar"
+        android:hint="@string/password"/>
+    <Button
+        android:id="@+id/ButReg"
+        android:layout_width="247dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:width="200dp"
+        android:height="60dp"
+        android:backgroundTint="#fcb5b9"
+        android:fontFamily="sans-serif"
+        android:text="@string/let_s_start"
+        android:textColor="@color/black"
+        android:textSize="24sp" />
+    <TextView
+        android:id="@+id/LinkRegRedirect"
+        android:layout_width="392dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:onClick="Redirect"
+        android:fontFamily="sans-serif"
+        android:text="@string/already_have_an_account"
+        android:textAlignment="center"
+        android:textColor="#989898"
+        android:textSize="14sp" />
+
+</LinearLayout>
