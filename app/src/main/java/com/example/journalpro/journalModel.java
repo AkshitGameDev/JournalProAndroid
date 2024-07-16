@@ -1,17 +1,32 @@
 package com.example.journalpro;
 
+import android.util.Log;
 public class journalModel {
-    String title;
-    String description;
+    private String Title;
+    private String disc;
 
-    public journalModel(String title, String description) {
-        this.title = title;
-        this.description = description;
+    // Default constructor required for calls to DataSnapshot.getValue(journalModel.class)
+    public journalModel() {
     }
+
+    public journalModel(String Title, String disc) {
+        this.Title = Title;
+        this.disc = disc;
+    }
+
     public String getTitle() {
-        return title;
+        return Title;
     }
-    public String getDescription() {
-        return description;
+
+    public void setTitle(String Title) {
+        this.Title = Title;
+    }
+
+    public String getDisc() {
+        return disc;
+    }
+
+    public void setDisc(String disc) {
+        this.disc = disc;
     }
 }
