@@ -6,11 +6,14 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.FirebaseDatabase;
 
 /**
@@ -20,6 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
  */
 public class JournalFragment extends Fragment {
     RecyclerView recyclerView;
+    private TextInputEditText j_search;
     FirebaseRecyclerOptions<journalModel> options;
     private journalRVadapter adapter;
 
@@ -28,6 +32,7 @@ public class JournalFragment extends Fragment {
 
     private String mParam1;
     private String mParam2;
+
 
     public JournalFragment() {
         // Required empty public constructor
@@ -57,13 +62,39 @@ public class JournalFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_journal, container, false);
         recyclerView = rootView.findViewById(R.id.j_recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        j_search = rootView.findViewById(R.id.j_search);
+
+        j_search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                performSearch(s.toString());
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
 
         setupJournalModels();
 
-        adapter = new journalRVadapter(options);
+        adapter = new journalRVadapter(options, getContext());
         recyclerView.setAdapter(adapter);
 
         return rootView;
+    }
+
+    private  void performSearch(String str){
+        options = new FirebaseRecyclerOptions.Builder<journalModel>()
+                .setQuery(FirebaseDatabase.getInstance().getReference().orderByChild("Title").startAt(str).endAt(str+"~"), journalModel.class)
+                .build();
+        adapter = new journalRVadapter(options, getContext());
+        adapter.startListening();
+        recyclerView.setAdapter(adapter);
     }
 
     private void setupJournalModels() {

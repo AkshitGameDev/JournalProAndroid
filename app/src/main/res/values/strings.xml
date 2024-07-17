@@ -30,6 +30,9 @@
     <string name="cap_scheduler">SCHEDULER</string>
     <string name="cap_settings">SETTINGS</string>
     <string name="logout">LOGOUT</string>
+    <string name="delete">Delete</string>
+    <string name="update">Update</string>
+    <string name="start_journalingh">start journalingh...</string>
 
 
     <string-array name="journal_title">

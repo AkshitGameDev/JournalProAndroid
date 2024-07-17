@@ -1,5 +1,7 @@
 package com.example.journalpro;
 
+import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,15 +16,29 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 
 public class journalRVadapter extends FirebaseRecyclerAdapter<journalModel, journalRVadapter.MyViewHolder> {
 
+    Context context;
 
-
-    public journalRVadapter(@NonNull FirebaseRecyclerOptions<journalModel> options) {
+    public journalRVadapter( @NonNull FirebaseRecyclerOptions<journalModel> options, Context context) {
         super(options);
+        this.context = context;
+
     }
 
     @Override
     protected void onBindViewHolder(@NonNull MyViewHolder holder, int position, @NonNull journalModel model) {
         holder.title.setText(model.getTitle());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Start a new activity or fragment when the item is clicked
+                Intent intent = new Intent(context, DetailsActivity.class);
+                intent.putExtra("title", model.getTitle());
+                intent.putExtra("description", model.getDisc());
+                intent.putExtra("pos",position);
+                intent.putExtra("key", getRef(holder.getAbsoluteAdapterPosition()).getKey());
+                context.startActivity(intent);
+            }
+        });
         holder.description.setText(model.getDisc());
     }
 
