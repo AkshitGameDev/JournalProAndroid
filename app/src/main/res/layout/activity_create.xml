@@ -5,16 +5,16 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailsActivity">
+    tools:context=".CreateActivity">
 
     <TextView
-        android:id="@+id/d_textView"
+        android:id="@+id/c_textView"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="@drawable/title_bar"
         android:fontFamily="@font/poppins_medium"
-        android:backgroundTint="#fcb5b9"
-        android:text="@string/update"
+        android:backgroundTint="#ffe478"
+        android:text="@string/create"
         android:textAlignment="center"
         android:textSize="40sp"
         app:layout_constraintTop_toTopOf="parent" />
@@ -31,11 +31,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/d_textView" />
+        app:layout_constraintTop_toBottomOf="@+id/c_textView" />
 
     <com.google.android.material.textfield.TextInputEditText
 
-        android:id="@+id/d_title"
+        android:id="@+id/c_title"
         android:layout_width="396dp"
         android:layout_height="47dp"
         android:layout_gravity="center_horizontal"
@@ -60,10 +60,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/d_title" />
+        app:layout_constraintTop_toBottomOf="@+id/c_title" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/d_Disc"
+        android:id="@+id/c_Disc"
         android:layout_width="382dp"
         android:layout_height="370dp"
         android:layout_gravity="center_horizontal"
@@ -79,32 +79,19 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <Button
-        android:id="@+id/d_Update"
+        android:id="@+id/c_create"
         android:layout_width="150dp"
         android:layout_height="48dp"
-        android:text="@string/update"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginBottom="24dp"
         android:backgroundTint="#ffbb02"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/d_Delete"
-        app:layout_constraintHorizontal_bias="0.047"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/d_Disc"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/d_Delete"
-        android:layout_width="150dp"
-        android:layout_height="48dp"
-        android:backgroundTint="#de3645"
-        android:text="@string/delete"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="24dp"
+        android:textColor="@color/black"
+        android:text="@string/create"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/d_Disc"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/c_Disc"
+        app:layout_constraintVertical_bias="0.709" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -33,6 +33,11 @@
     <string name="delete">Delete</string>
     <string name="update">Update</string>
     <string name="start_journalingh">start journalingh...</string>
+    <string name="create">CREATE</string>
+    <string name="cap_profile">PROFILE</string>
+    <string name="disc">Disc</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="dark_mode">Dark Mode</string>
 
 
     <string-array name="journal_title">

@@ -12,6 +12,7 @@
         android:layout_height="60dp"
         android:background="@drawable/title_bar"
         android:fontFamily="@font/poppins_medium"
+        android:backgroundTint="#fcb5b9"
         android:text="@string/cap_journal"
         android:textAlignment="center"
         android:textSize="40sp" />
@@ -45,6 +46,17 @@
         android:layout_width="412dp"
         android:layout_height="563dp"
         android:layout_marginTop="167dp" />
+
+    <Button
+        android:id="@+id/j_add"
+        android:layout_width="72dp"
+        android:onClick="onClickCreate"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="325dp"
+        android:layout_marginTop="650dp"
+        android:text="+"
+        android:backgroundTint="#fcb5b9"
+        android:textSize="40dp" />
 
 
 </FrameLayout>

@@ -1,12 +1,22 @@
 package com.example.journalpro;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -15,6 +25,11 @@ import android.view.ViewGroup;
  */
 public class NotesFragment extends Fragment {
 
+    String veto = " ";
+    RecyclerView recyclerView;
+    private TextInputEditText j_search;
+    FirebaseRecyclerOptions<notesModel> options;
+    private notesRVadapter adapter;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -56,9 +71,60 @@ public class NotesFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_notes, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_notes, container, false);
+        recyclerView = rootView.findViewById(R.id.n_recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        j_search = rootView.findViewById(R.id.n_search);
+
+        j_search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                performSearch(s.toString());
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+
+        setupNotesModels();
+
+        adapter = new notesRVadapter(options, getContext());
+        recyclerView.setAdapter(adapter);
+
+        return rootView;
+    }
+
+    private  void performSearch(String str){
+        options = new FirebaseRecyclerOptions.Builder<notesModel>()
+                .setQuery(FirebaseDatabase.getInstance().getReference().orderByChild("Title").startAt(str).endAt(str+"~"), notesModel.class)
+                .build();
+        adapter = new notesRVadapter(options, getContext());
+        adapter.startListening();
+        recyclerView.setAdapter(adapter);
+    }
+
+    private void setupNotesModels() {
+        options = new FirebaseRecyclerOptions.Builder<notesModel>()
+                .setQuery(FirebaseDatabase.getInstance().getReference().child("Notes"), notesModel.class)
+                .build();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        adapter.stopListening();
     }
 }

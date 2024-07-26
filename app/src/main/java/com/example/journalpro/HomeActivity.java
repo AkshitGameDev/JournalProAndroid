@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.journalpro.databinding.ActivityHomeBinding;
@@ -49,7 +51,16 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-
+    public void onClickCreate(View view) {
+        Intent intent = new Intent(HomeActivity.this, CreateActivity.class);
+        intent.putExtra("veto", "Journals");
+        startActivity(intent);
+    }
+    public void onClickCreteNotes(View view){
+        Intent intent = new Intent(HomeActivity.this, CreateActivity.class);
+        intent.putExtra("veto", "Notes");
+        startActivity(intent);
+    }
 
 
     public void getfragment(Fragment fragment) {

@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -28,8 +29,10 @@ public class SettingskFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private TextView name, disc;
 
-    Button Logout;
+
+    Button Logout, EditProfile;
     FirebaseAuth auth;
     FirebaseUser user;
 
@@ -62,8 +65,6 @@ public class SettingskFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-
             }
 
     @Override
@@ -74,8 +75,9 @@ public class SettingskFragment extends Fragment {
         auth = FirebaseAuth.getInstance();
         Logout = rootView.findViewById(R.id.logout);
         user = auth.getCurrentUser();
+        name = rootView.findViewById(R.id.user_name);
 
-
+        disc = rootView.findViewById(R.id.user_disc);
         if (user == null){
             Intent intent = new Intent(rootView.getContext(), Login.class);
             startActivity(intent);

@@ -6,10 +6,6 @@
     tools:context=".NotesFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
     <TextView
         android:layout_width="match_parent"
@@ -17,7 +13,47 @@
         android:background="@drawable/title_bar"
         android:fontFamily="@font/poppins_medium"
         android:text="@string/cap_notes"
+        android:backgroundTint="#ffe478"
         android:textAlignment="center"
         android:textSize="40sp" />
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/n_search"
+        android:layout_width="396dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="75dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/no_fill_email_and_search_bar"
+        android:hint="@string/spaces_search"
+        android:textAlignment="center"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="132dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/recents"
+        android:textAlignment="viewStart"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/n_recyclerView"
+        android:layout_width="412dp"
+        android:layout_height="563dp"
+        android:layout_marginTop="167dp" />
+
+    <Button
+        android:id="@+id/n_add"
+        android:layout_width="72dp"
+        android:onClick="onClickCreteNotes"
+        android:backgroundTint="#ffe478"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="325dp"
+        android:layout_marginTop="650dp"
+        android:text="+"
+        android:textSize="40dp" />
 
 </FrameLayout>

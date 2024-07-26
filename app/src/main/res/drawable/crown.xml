@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- White border layer -->
+
+    <!-- Crown icon layer -->
+    <item android:insetLeft="10dp"
+        android:insetRight="10dp"
+        android:insetTop="10dp"
+        android:insetBottom="10dp">
+        <bitmap
+            android:src="@drawable/profile_topper_crown_icon"
+            android:gravity="center"/>
+    </item>
+</layer-list>

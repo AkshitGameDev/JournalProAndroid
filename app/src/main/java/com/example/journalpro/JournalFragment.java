@@ -1,5 +1,6 @@
 package com.example.journalpro;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,6 +12,7 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.textfield.TextInputEditText;
@@ -27,11 +29,14 @@ public class JournalFragment extends Fragment {
     FirebaseRecyclerOptions<journalModel> options;
     private journalRVadapter adapter;
 
+    private Button create_but;
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
     private String mParam1;
     private String mParam2;
+    String veto = " ";
 
 
     public JournalFragment() {
@@ -79,9 +84,7 @@ public class JournalFragment extends Fragment {
             }
         });
 
-
         setupJournalModels();
-
         adapter = new journalRVadapter(options, getContext());
         recyclerView.setAdapter(adapter);
 
