@@ -1,5 +1,7 @@
 package com.journal.journalpro;
 
+import static com.journal.journalpro.CalanderUtils.monthYearFromDate;
+
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -20,6 +22,7 @@ import java.time.LocalDate;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Stack;
 
 /**
@@ -31,7 +34,7 @@ public class SchedulerFragment extends Fragment implements CalanderAdapter.OnIte
     public Button nextMonth, previousMonth, weeklyEvents;
     public TextView MonthYearText;
     public RecyclerView CalanderRecyclerView;
-    public LocalDate SelectedDate;
+
 
     public SchedulerFragment() {
         // Required empty public constructor
@@ -47,7 +50,7 @@ public class SchedulerFragment extends Fragment implements CalanderAdapter.OnIte
         View rootView = inflater.inflate(R.layout.fragment_scheduler, container, false);
         CalanderRecyclerView = rootView.findViewById(R.id.calanderRV);
         MonthYearText = rootView.findViewById(R.id.MonthYearTv);
-        SelectedDate = LocalDate.now();
+        CalanderUtils.SelectedDate = LocalDate.now();
 
         setMonthView();
 
@@ -57,14 +60,14 @@ public class SchedulerFragment extends Fragment implements CalanderAdapter.OnIte
         nextMonth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SelectedDate = SelectedDate.plusMonths(1);
+                CalanderUtils.SelectedDate = CalanderUtils.SelectedDate.plusMonths(1);
                 setMonthView();
             }
         });
         previousMonth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SelectedDate = SelectedDate.minusMonths(1);
+                CalanderUtils.SelectedDate = CalanderUtils.SelectedDate.minusMonths(1);
                 setMonthView();
             }
         });
@@ -80,41 +83,21 @@ public class SchedulerFragment extends Fragment implements CalanderAdapter.OnIte
     }
 
     void setMonthView() {
-        MonthYearText.setText(monthYearFromDate(SelectedDate));
-        ArrayList<String> daysInMonth = daysInMonthArray(SelectedDate);
-        CalanderAdapter calanderAdapter = new CalanderAdapter(daysInMonth, this);
+        MonthYearText.setText(monthYearFromDate(CalanderUtils.SelectedDate));
+        ArrayList<LocalDate> days = CalanderUtils.daysInMonthArray(CalanderUtils.SelectedDate);
+        CalanderAdapter calanderAdapter = new CalanderAdapter(days, this);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(), 7);
         CalanderRecyclerView.setLayoutManager(layoutManager);
         CalanderRecyclerView.setAdapter(calanderAdapter);
     }
 
-    private ArrayList<String> daysInMonthArray(LocalDate date) {
-        ArrayList<String> daysInMonthArray = new ArrayList<>();
-        YearMonth yearMonth = YearMonth.from(date);
-        int daysInMonth = yearMonth.lengthOfMonth();
-        LocalDate firstOfMonth = SelectedDate.withDayOfMonth(1);
-        int dayOfWeek = firstOfMonth.getDayOfWeek().getValue();
-
-        for (int i = 1; i <= 42; i++) {
-            if (i <= dayOfWeek || i > daysInMonth + dayOfWeek) {
-                daysInMonthArray.add("");
-            } else {
-                daysInMonthArray.add(String.valueOf(i - dayOfWeek));
-            }
-        }
-        return daysInMonthArray;
-    }
-
-    private String monthYearFromDate(LocalDate localDate) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM yyyy");
-        return localDate.format(formatter);
-    }
 
     @Override
-    public void onItemClick(int position, String dayText) {
-        if (!dayText.equals("")) {
-            String message = "Selected Date " + dayText + " " + monthYearFromDate(SelectedDate);
-            Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+    public void onItemClick(int position, LocalDate date) {
+        if(date!= null) {
+            CalanderUtils.SelectedDate = date;
+            setMonthView();
         }
+
     }
 }

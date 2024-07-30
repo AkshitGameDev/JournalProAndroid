@@ -132,14 +132,13 @@
         android:id="@+id/w_calanderRV"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1.5" />
 
     <Button
         android:id="@+id/newEvent"
         android:layout_width="243dp"
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"
         android:background="@color/material_on_surface_stroke"
         android:fontFamily="@font/poppins_medium"
         android:text="@string/new_event"
