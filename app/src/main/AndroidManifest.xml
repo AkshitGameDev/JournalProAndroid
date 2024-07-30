@@ -15,6 +15,12 @@
         android:theme="@style/Theme.JournalPro"
         tools:targetApi="31">
         <activity
+            android:name=".EventEditActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WeekViewActivity"
+            android:exported="false" />
+        <activity
             android:name=".CreateActivity"
             android:exported="false" />
         <activity

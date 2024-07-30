@@ -1,5 +1,6 @@
 package com.journal.journalpro;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -19,6 +20,7 @@ import java.time.LocalDate;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Stack;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,7 +28,7 @@ import java.util.ArrayList;
  * create an instance of this fragment.
  */
 public class SchedulerFragment extends Fragment implements CalanderAdapter.OnItemListener {
-    public Button nextMonth, previousMonth;
+    public Button nextMonth, previousMonth, weeklyEvents;
     public TextView MonthYearText;
     public RecyclerView CalanderRecyclerView;
     public LocalDate SelectedDate;
@@ -51,6 +53,7 @@ public class SchedulerFragment extends Fragment implements CalanderAdapter.OnIte
 
         nextMonth = rootView.findViewById(R.id.s_nextMonth);
         previousMonth = rootView.findViewById(R.id.s_previousMonth);
+        weeklyEvents = rootView.findViewById(R.id.weeeklyAction);
         nextMonth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,6 +68,13 @@ public class SchedulerFragment extends Fragment implements CalanderAdapter.OnIte
                 setMonthView();
             }
         });
+        weeklyEvents.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(rootView.getContext(), WeekViewActivity.class));
+            }
+        });
+
 
         return rootView;
     }

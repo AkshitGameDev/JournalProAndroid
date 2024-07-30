@@ -50,6 +50,8 @@
     <string name="cap_sun">SUN</string>
     <string name="_1">1</string>
     <string name="july">July</string>
+    <string name="weekly">Weekly</string>
+    <string name="new_event">New Event</string>
 
 
     <string-array name="journal_title">

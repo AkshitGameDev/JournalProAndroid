@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SchedulerFragment"
-    android:backgroundTint="@color/white">
+    tools:context=".WeekViewActivity">
 
     <TextView
         android:layout_width="match_parent"
@@ -15,32 +17,13 @@
         android:textAlignment="center"
         android:textSize="34sp" />
 
-    <Button
-        android:id="@+id/weeeklyAction"
-        android:layout_width="243dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="70dp"
-        android:background="@color/material_on_surface_stroke"
-        android:fontFamily="@font/poppins_medium"
-        android:text="@string/weekly"
-        android:textAlignment="center"
-        android:textColor="#54d6ff"
-        android:textSize="26sp"
-        android:textStyle="bold" />
-
-
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
-        android:layout_marginBottom="20dp"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/s_previousMonth"
+            android:id="@+id/w_previousWeek"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/material_on_surface_stroke"
@@ -51,7 +34,7 @@
             android:layout_weight="1"/>
 
         <TextView
-            android:id="@+id/MonthYearTv"
+            android:id="@+id/w_MonthYearTv"
             android:layout_width="243dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -64,7 +47,7 @@
             android:layout_weight="3"/>
 
         <Button
-            android:id="@+id/s_nextMonth"
+            android:id="@+id/w_nextWeek"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/material_on_surface_stroke"
@@ -80,8 +63,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="170dp"
-        android:layout_marginBottom="20dp"
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
@@ -148,10 +129,28 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/calanderRV"
+        android:id="@+id/w_calanderRV"
         android:layout_width="match_parent"
-        android:layout_height="537dp"
-        android:layout_marginTop="195dp" />
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
+    <Button
+        android:id="@+id/newEvent"
+        android:layout_width="243dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="@color/material_on_surface_stroke"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/new_event"
+        android:textAlignment="center"
+        android:textColor="#54d6ff"
+        android:textSize="26sp"
+        android:textStyle="bold" />
 
-</FrameLayout>
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="5" />
+
+</LinearLayout>
