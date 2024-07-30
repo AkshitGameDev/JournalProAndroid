@@ -52,6 +52,9 @@
     <string name="july">July</string>
     <string name="weekly">Weekly</string>
     <string name="new_event">New Event</string>
+    <string name="add_event">Add Event</string>
+    <string name="event_name">Event name</string>
+    <string name="date">Date:</string>
 
 
     <string-array name="journal_title">

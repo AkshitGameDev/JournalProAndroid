@@ -1,5 +1,7 @@
 package com.journal.journalpro;
 
+import android.os.ParcelUuid;
+
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.YearMonth;
@@ -48,5 +50,10 @@ public class CalanderUtils {
             current = current.minusDays(1);
         }
         return current;
+    }
+
+    public  static  String FormattedDate (LocalDate date){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+        return date.format(formatter);
     }
 }
