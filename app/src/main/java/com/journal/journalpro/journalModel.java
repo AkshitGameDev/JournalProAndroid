@@ -1,6 +1,5 @@
-package com.example.journalpro;
+package com.journal.journalpro;
 
-import android.util.Log;
 public class journalModel {
     private String Title;
     private String disc;

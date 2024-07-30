@@ -1,4 +1,4 @@
-package com.example.journalpro;
+package com.journal.journalpro;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,46 +15,24 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
-public class Login extends AppCompatActivity {
+public class Register extends AppCompatActivity {
 
     TextInputEditText email,password;
-    Button buttonLogin;
-    Button Redirect;
+    Button buttonReg;
 
     FirebaseAuth mAuth;
 
     @Override
-    public void onStart() {
-        super.onStart();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
-            Intent  intent = new Intent(getApplicationContext(), HomeActivity.class);
-            startActivity(intent);
-        }
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        email = findViewById(R.id.LoginEmail);
-        password = findViewById(R.id.LoginPassword);
-        buttonLogin = findViewById(R.id.ButLogin);
+        setContentView(R.layout.activity_register);
+        email = findViewById(R.id.RegEmail);
+        password = findViewById(R.id.RegPass);
+        buttonReg = findViewById(R.id.ButReg);
         mAuth = FirebaseAuth.getInstance();
-        Redirect = findViewById(R.id.RedirectRegister);
-        Redirect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),Register.class);
-                startActivity(intent);
-            }
-        });
 
-
-
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
+        buttonReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String _email, _password;
@@ -62,28 +40,32 @@ public class Login extends AppCompatActivity {
                 _password = String.valueOf(password.getText());
 
                 if(TextUtils.isEmpty(_email) || TextUtils.isEmpty(_password) ){
-                    Toast.makeText(Login.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Register.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
                     return;
 
                 }
-
-                mAuth.signInWithEmailAndPassword(_email, _password)
+                mAuth.createUserWithEmailAndPassword(_email, _password)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(Login.this, "Authentication Successful.",
-                                            Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                                     startActivity(intent);
-
+                                    Toast.makeText(Register.this, "Account Created",
+                                            Toast.LENGTH_SHORT).show();
+                                    finish();
                                 } else {
-                                    Toast.makeText(Login.this, "Authentication failed.",
+                                    Toast.makeText(Register.this, "Authentication failed.",
                                             Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
             }
         });
+    }
+
+    public void Redirect(View view) {
+        Intent intent = new Intent(getApplicationContext(), Login.class);
+        startActivity(intent);
     }
 }

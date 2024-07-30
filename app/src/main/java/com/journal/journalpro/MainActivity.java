@@ -1,4 +1,4 @@
-package com.example.journalpro;
+package com.journal.journalpro;
 
 import androidx.appcompat.app.AppCompatActivity;
 

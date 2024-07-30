@@ -1,6 +1,5 @@
-package com.example.journalpro;
+package com.journal.journalpro;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;

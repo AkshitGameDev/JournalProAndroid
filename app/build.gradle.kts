@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    namespace = "com.example.journalpro"
+    namespace = "com.journal.journalpro"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.journalpro"
-        minSdk = 24
+        applicationId = "com.journal.journalpro"
+        minSdk = 30
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"

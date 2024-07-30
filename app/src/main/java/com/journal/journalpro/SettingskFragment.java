@@ -1,10 +1,11 @@
-package com.example.journalpro;
+package com.journal.journalpro;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,11 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,6 +37,7 @@ public class SettingskFragment extends Fragment {
     private String mParam2;
     private TextView name, disc;
 
+    private DatabaseReference databaseReference;
 
     Button Logout, EditProfile;
     FirebaseAuth auth;
@@ -76,6 +83,31 @@ public class SettingskFragment extends Fragment {
         Logout = rootView.findViewById(R.id.logout);
         user = auth.getCurrentUser();
         name = rootView.findViewById(R.id.user_name);
+
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("Settings/user");
+
+
+        // Retrieve data
+
+        // Retrieve data
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Check if the data exists
+                if (dataSnapshot.exists()) {
+                    // Get name and about from the snapshot
+                    name.setText(dataSnapshot.child("Name").getValue(String.class));
+                    disc.setText(dataSnapshot.child("about").getValue(String.class));
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Handle possible errors
+                Log.w("FirebaseError", "loadPost:onCancelled", databaseError.toException());
+            }
+        });
 
         disc = rootView.findViewById(R.id.user_disc);
         if (user == null){

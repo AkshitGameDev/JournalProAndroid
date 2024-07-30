@@ -38,6 +38,18 @@
     <string name="disc">Disc</string>
     <string name="edit_profile">Edit Profile</string>
     <string name="dark_mode">Dark Mode</string>
+    <string name="left_arrow"><![CDATA[<-]]></string>
+    <string name="right_arrow"><![CDATA[->]]></string>
+    <string name="sun">Sun</string>
+    <string name="sat">SAT</string>
+    <string name="fri">FRI</string>
+    <string name="thu">THU</string>
+    <string name="wed">WED</string>
+    <string name="tue">TUE</string>
+    <string name="mon">MON</string>
+    <string name="cap_sun">SUN</string>
+    <string name="_1">1</string>
+    <string name="july">July</string>
 
 
     <string-array name="journal_title">

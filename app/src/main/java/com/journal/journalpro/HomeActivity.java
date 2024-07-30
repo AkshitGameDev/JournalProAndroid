@@ -1,4 +1,4 @@
-package com.example.journalpro;
+package com.journal.journalpro;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -10,10 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.journalpro.databinding.ActivityHomeBinding;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+import com.journal.journalpro.databinding.ActivityHomeBinding;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -73,5 +70,9 @@ public class HomeActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.f_layout, fragment);
         fragmentTransaction.commit();
+    }
+
+    public void s_nextMonth(View view) {
+
     }
 }

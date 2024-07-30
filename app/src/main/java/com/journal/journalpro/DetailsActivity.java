@@ -1,4 +1,4 @@
-package com.example.journalpro;
+package com.journal.journalpro;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -110,5 +110,8 @@ public class DetailsActivity extends AppCompatActivity {
                         });
             }
         });
+    }
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }

@@ -1,4 +1,4 @@
-package com.example.journalpro;
+package com.journal.journalpro;
 
 public class notesModel {
     String Title;
